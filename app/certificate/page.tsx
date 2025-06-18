@@ -1,12 +1,17 @@
 "use client";
 import Navbar from "@/components/navbar/page";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io"; 
 import { arrayCertificate } from "../../data/certificate";
 
-export default function Certificates({ searchParams }: { searchParams: { category?: string } }) {
+interface PageProps {
+  searchParams: {
+    category?: string
+  }
+}
+
+export default function CertificatesPage({ searchParams }: PageProps) {
   const category = searchParams.category;
   const filteredPorto = category
     ? arrayCertificate.filter((porto) => porto.category.toLowerCase() === category.toLowerCase())

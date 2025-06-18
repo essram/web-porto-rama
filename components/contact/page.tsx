@@ -2,7 +2,6 @@ import Image from "next/image";
 import IconLocation from "../../public/images/location.svg";
 import IconPhone from "../../public/images/phone.svg";
 import IconEmail from "../../public/images/email.svg";
-import Navbar from "../navbar/page";
 export default function Contact() {
   return (
     <div>

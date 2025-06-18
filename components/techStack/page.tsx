@@ -1,4 +1,3 @@
-import { FaLongArrowAltRight } from "react-icons/fa";
 import {
   SiTailwindcss,
   SiReact,
@@ -12,7 +11,6 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-import Link from "next/link";
 
 export default function TechStackPage() {
   return (
