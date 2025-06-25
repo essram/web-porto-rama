@@ -5,16 +5,11 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { arrayCertificate } from "../../data/certificate";
+import { useSearchParams } from "next/navigation"; 
 
-// ✅ Gunakan interface eksplisit biar tidak error saat build
-interface PageProps {
-  searchParams?: {
-    category?: string;
-  };
-}
-
-export default function Certificates({ searchParams }: PageProps) {
-  const category = typeof searchParams?.category === "string" ? searchParams.category : undefined;
+export default function Certificates() {
+  const searchParams = useSearchParams(); 
+  const category = searchParams.get("category");
 
   const filteredPorto = category
     ? arrayCertificate.filter(
