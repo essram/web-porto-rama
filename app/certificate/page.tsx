@@ -1,15 +1,25 @@
 "use client";
+
 import Navbar from "@/components/navbar/page";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { IoIosArrowBack } from "react-icons/io"; 
+import { IoIosArrowBack } from "react-icons/io";
 import { arrayCertificate } from "../../data/certificate";
 
+// ✅ Gunakan interface eksplisit biar tidak error saat build
+interface PageProps {
+  searchParams?: {
+    category?: string;
+  };
+}
 
-export default function Certificates({ searchParams }: any) {
-  const category = searchParams.category;
+export default function Certificates({ searchParams }: PageProps) {
+  const category = typeof searchParams?.category === "string" ? searchParams.category : undefined;
+
   const filteredPorto = category
-    ? arrayCertificate.filter((porto) => porto.category.toLowerCase() === category.toLowerCase())
+    ? arrayCertificate.filter(
+        (porto) => porto.category.toLowerCase() === category.toLowerCase()
+      )
     : arrayCertificate;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +34,6 @@ export default function Certificates({ searchParams }: any) {
     setSelectedImage(null);
     setIsModalOpen(false);
   };
-
 
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
@@ -64,7 +73,6 @@ export default function Certificates({ searchParams }: any) {
           ))}
         </div>
 
-        
         {isModalOpen && selectedImage && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
             <div className="relative max-w-3xl w-full p-4">
