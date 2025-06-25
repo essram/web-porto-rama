@@ -6,7 +6,11 @@ type Params = {
   id: string;
 };
 
-export default function ProjectDetail({ params }: { params: Params }) {
+export default async function ProjectDetail({
+  params,
+}: {
+  params: Params;
+}) {
   const { id } = params;
   const porto = arrayPorto.find((p) => p.id === parseInt(id));
 
