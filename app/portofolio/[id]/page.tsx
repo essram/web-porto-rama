@@ -5,9 +5,9 @@ import { arrayPorto } from "../../../data/portofolio";
 // GAK PERLU INTERFACE PageProps
 export default async function ProjectDetail({
   params,
-}: {
+}: Readonly<{
   params: { id: string };
-}) {
+}>) {
   const { id } = params;
   const porto = arrayPorto.find((p) => p.id === parseInt(id));
 
