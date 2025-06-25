@@ -2,13 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { arrayPorto } from "../../../data/portofolio";
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProjectDetail({ params }: PageProps) {
+// GAK PERLU INTERFACE PageProps
+export default async function ProjectDetail({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
   const porto = arrayPorto.find((p) => p.id === parseInt(id));
 
